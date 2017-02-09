@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<!--
+---- Ticket Assist - Home page for Ticket Assist Project.
+---- Written by Nick Scheel and Chase Ingebritson Fall 2016
+----
+---- Demo page created February 2017.
+----
+---- Designed for internal use at the St. Thomas Tech Desk.
+----
+--->
+<html lang="en">
+<head>
+  <title>Demo Ticket Assist</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="sweetalert-master/dist/sweetalert.min.js"></script>
+	<script src="alerts.js"></script>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="sweetalert-master/dist/sweetalert.css"> 
+	<link rel="stylesheet" href="http://personal.stthomas.edu/sche0210/DemoAssistant/DemoStyle.css">
+	<link rel="stylesheet" href="/styles/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/styles/navbar.css">
+
+	<script src="selection.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.0/jquery.matchHeight-min.js"></script>
+	<style>
+	.infoiFrame {
+		margin-top: 10px;
+		padding-top: 10px;
+	}
+	.nav-tabs {
+		margin-top: -11px;
+	}
+	input#submitbutton {
+		width: 100%;
+		margin-top: 25px;
+		margin-left: 0px;
+		margin-right: 0px;
+		margin-bottom: 0px;
+	}
+	th {
+		font-weight: normal;
+	}
+	</style>
+</head>
+<body>
+
+<nav id="main-navbar" class="navbar navbar-default navbar-static-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+      <a class="navbar-brand" href="/assistant.php"><div class="home_link">&nbsp<span class="glyphicon glyphicon-home"></span>&nbsp</div></a>
+		</div>
+		<div class="collapse navbar-collapse" id="myNavbar">
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+				<span class="glyphicon glyphicon-option-vertical"></span>
+				&nbspKnowledge Base
+				<span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu ">
+					<li><a href="#" ><span class="glyphicon glyphicon-road"></span>&nbsp&nbspGuides</a></li>
+					<li><a href="#" ><span class="glyphicon glyphicon-sort-by-attributes-alt"></span>&nbsp&nbspMind Map</a></li>
+
+				</ul>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<span class="glyphicon glyphicon-option-vertical"></span>
+						&nbspInternal Links
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu ">
+						<li><a href="#" ><span class="glyphicon glyphicon-folder-open"></span>&nbsp&nbspLogs</a></li>
+						<li><a href="#" ><span class="glyphicon glyphicon-list"></span>&nbsp&nbspStudent Roster</a></li>
+						<li><a href="#" ><i class="fa fa-bug" aria-hidden="true"></i>&nbsp&nbspSubmit Feedback</a></li>
+						<li><a href="#" ><span class="glyphicon glyphicon-certificate"></span>&nbsp&nbspBadges</a></li>
+						<li><a href="#" ><span class="glyphicon glyphicon-calendar"></span>&nbsp&nbspCalendar</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<span class="glyphicon glyphicon-option-vertical"></span>
+						&nbspExternal Links
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu ">
+						<!-- Glyphcons found on http://getbootstrap.com/components/. They are provided for free from http://glyphicons.com/-->
+						<!-- The code "&nbsp" is a forced space, which adds white space inbetween the glyphcon and the words following them.-->
+						<li><a href="#" target="_blank"><span class="glyphicon glyphicon-pencil"></span>&nbsp&nbspWeb Help Desk</a></li>
+						<li><a href="#" target="_blank"><span class="glyphicon glyphicon-globe"></span>&nbsp&nbspSharepoint Site</a></li>
+						<li><a href="#" target="_blank"><span class="glyphicon glyphicon-list-alt"></span>&nbsp&nbspForefront Identity Manager</a></li>
+						<li><a href="#" target="_blank"><span class="glyphicon glyphicon-barcode"></span>&nbsp&nbspCheckout System</a></li>
+						<li><a href="#" target="_blank"><span class="glyphicon glyphicon-calendar"></span>&nbsp&nbspStudent Schedule</a></li>
+						<li><a href="#" target="_blank"><span class="glyphicon glyphicon-education"></span>&nbsp&nbspITS Homepage</a></li>
+						<li><a href="#" target="_blank"><span class="glyphicon glyphicon-time"></span>&nbsp&nbspTime Keeping</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<span class="glyphicon glyphicon-lock"></span>
+						&nbspAdmin Links
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu ">
+						<!-- Glyphcons found on http://getbootstrap.com/components/. They are provided for free from http://glyphicons.com/-->
+						<!-- The code "&nbsp" is a forced space, which adds white space inbetween the glyphcon and the words following them.-->
+						<li><a href="#" ><span class="glyphicon glyphicon-book"></span>&nbsp&nbspNew Guide</a></li>
+						<li><a href="#" ><span class="glyphicon glyphicon-phone"></span>&nbsp&nbspEmployee Contacts</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-calendar"></span>&nbsp&nbspCalendar BETA</a></li>
+						<li><a href="#" ><span class="glyphicon glyphicon-bullhorn"></span>&nbsp&nbspAnnouncements</a></li>
+						<li><a href="#" ><span class="glyphicon glyphicon-list"></span>&nbsp&nbspUser Roster</a></li>
+						<li><a href="#" ><span class="glyphicon glyphicon-user"></span>&nbsp&nbspAdd or Remove User</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" id="megalink" class="megalink btn btn-secondary" role="button" title="If not functioning, allow pop-ups for this page."><span class="glyphicon glyphicon-triangle-right"></span>&nbsp&nbspMega Link</a>
+				</li>
+				<li class="dropdown">
+					<a href="#" id="passwordgen" class="megalink btn btn-secondary" role="button" onclick="generatePassword();"><span class="glyphicon glyphicon-triangle-right"></span>&nbsp&nbspGenerate Passwords</a>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+						<span class="glyphicon glyphicon-cog"></span>
+						&nbsp&nbspUsername
+						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu">
+						<li><a href="#" ><span class="glyphicon glyphicon-triangle-right"></span>&nbsp&nbspChange Password</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-triangle-right"></span>&nbsp&nbspUser Settings</a></li>
+					</ul>
+				</li>
+				<li><a href="#"><div class="logout_link">&nbsp&nbsp<span class="glyphicon glyphicon-log-out"></span>&nbsp&nbspLog Out</div></a></li>
+			</ul>
+	    </div>
+	</div>
+</nav>
+<script>
+	/* This script controls the Megalink button, which opens 0-5 URLs determined by the user. These URLs are static for the purpose of this demo page. */
+	$("#megalink").click(function(e) {
+		e.preventDefault();
+		window.open("https://www.google.com"); window.open("http://www.stthomas.edu/its"); window.open("https://www.espn.com");
+	});
+</script>
+<div class="container-fluid text-center"> <!-- Creates container that holds everything except the navbar-->
+  <div class="row content">
+
+  	<div class="col-md-11 text-left">
+		<h1>Ticket Assist</h1>
+	</div>
+
+	<!--
+	<--- Begin columns 2-3, containing Client Information and Further Details sections of the form.
+	<--- The form is continued and submitted in the next set of columns.
+	--->
+    <div class="col-md-2 text-left">
+      <form id="clientInfoForm" method="post" action="#" target="infoiFrame">
+			<!-- Begin client info section-->
+			<fieldset id="clientinfo">
+				<legend>Client Information:</legend>
+				<div class="form-group">
+					<label for ="clientusername">Username: (Check in FIM / WHD)</label>
+					<input type="text" class="form-control" name="clientusername" autofocus>
+				</div>
+				<div class="form-group">
+					<label for ="clinetphone">Phone Number / Seconary email:</label>
+					<input type="text" class="form-control" name="clientphone">
+				</div>
+				<div class="form-group">
+					<label for ="location">Location:</label>
+					<input type="text" class="form-control" name="location">
+				</div>
+
+				<!--Role Selection-->
+				<div class="form-group">
+					<label for="roleselect">Role:</label>
+					<select class="form-control" id="roleselect" name="roleselect">
+						<option value="none">----</option>
+						<option value="Faculty/Staff">Faculty/Staff</option>
+						<option value="Student">Student</option>
+						<option value="Alumni">Alumni</option>
+						<option value="Other">Other</option>
+					</select>
+				</div>
+			</fieldset><br>
+
+			<!--Begin further details-->
+			<fieldset id="details">
+				<legend>Further Details:</legend>
+				<div class="form-group">
+					<select class="form-control" id="typeselect" name="typeselect" > <!-- When changed, calls selection.js -->
+						<option id="none" value="None Applicable" selected>None Applicable</option>
+						<option id="hardware" value="Hardware">Hardware</option>
+						<option id="software" value="Software">Software</option>
+						<option id="printer" value="Printer">Printer</option>
+						<option id="network" value="Network">Network</option>
+						<option id="webpage" value="Webpage">Webpage</option>
+						<option id="showall" value="All Selected">Show All</option>
+					</select>
+				</div>
+				<!-- The following form entries are hidden by default, and are shown depending on the selction above -->
+				<div class="form-group" id="asset_input">
+						<label for="assetnum">Asset Number:</label><br>
+						<input class="form-control" name="assetnum" id="assetnum" type="text" placeholder="A00012345"/>
+				</div>
+				<div class="form-group" id="hardware_input">
+					<label for="assetdesc">Asset Description:</label>
+					<input class="form-control" name="assetdec" id="assetdesc" type="text" placeholder="PC Desktop, iMac, etc."/>
+				</div>
+				<div class="form-group" id="software_input">
+					<label for="softwaredesc">Software Description:</label><br>
+					<input class="form-control" name="siftwaredesc" id="softwaredesc" type="text" placeholder="Word, Minitab, etc."/>
+				</div>
+				<div class="form-group" id="printer_input">
+					<label for="queuename">Queue Name:</label><br>
+					<input class="form-control" name="queuename" id="queuename" type="text" placeholder="OEC008-4048"/>
+					<br>
+					<label for="printerIP">Printer IP:</label><br>
+					<input class="form-control" name="printerIP" id="printerIP" type="text" placeholder="140.209.47.122"/>
+				</div>
+				<div class="form-group" id="web_input">
+					<label for="sitename">Website:</label><br>
+					<input class="form-control" name="sitename" id="sitename" type="text" placeholder="Blackboard, Murphy, etc."/>
+					<br>
+				</div>
+				<div class="form-group" id="network_input">
+					<p><strong>Be sure to ask for their location!</strong></p>
+					<label for="devicedesc">Device:</label><br>
+					<input class="form-control" name="devicedesc" id="devicedesc" type="text" placeholder="Computer, cell phone, etc."/>
+					<label for="connectionRadio">Connection Type:</label>
+					<div class="radio" id="connectionRadio">
+						<label><input type="radio" name="connectiontype" value="Wired"> Wired</label>
+						<label><input type="radio" name="connectiontype" value="Wireless"> Wireless</label>
+					</div>
+					<br>
+				</div>
+			</fieldset>
+			<br><br>
+	</div> <!-- End div for columns 2-3 -->
+
+	<!--
+	<--- Begin columns 4-5, containing Misc. Information and the final output of the form.
+	<--- Also contains the Submit button and Reset button.
+	--->
+	<div class="col-md-2 text-left">
+		<div class="col-md 12">
+			<legend>&nbsp </legend>
+			<div class="form-group" style="margin-bottom: 0px;">
+				<label for="message">Misc. Notes:</label>
+				<textarea class="form-control" name="miscnotes" rows="6" selected></textarea>
+			</div>
+		</div>
+		<div class="row" >
+			<div class="col-md-12 col-sm-12" >
+				<input id="submitbutton" type="button" class="btn btn-custom" value="Populate Editor">
+			</div>
+		</div>
+		</form> <!--end of form-->
+
+		<!--
+		<--- The iFrame below calls testInfoOutput.php, which takes the above form and formats it.
+		<--- Also provides a button that copies the text within it's textarea
+		--->
+		<div class="row">
+			<div class="infoiFrame" id="infoiFrameDiv" >
+				<iframe src="DemoEditor.html" name="infoiFrame" width="100%" height="257px" frameBorder="0" marginwidth="0px" scrolling="no"></iframe>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<input form="clientInfoForm" id="resetbutton" type="reset" class="btn btn-danger" value="Reset Form" onclick="hideAll();">
+			</div>
+		</div>
+	</div>	<!-- End div for columns 3-4 -->
+
+	<!--
+	<--- Begin columns 6-10, which holds tabs for Announcements, Active Logs, Notifications, and Troubleshooting
+	--->
+	<div class="col-md-5 text-left">
+		<div id="home_tabs">
+		  <ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" id="ann-tab" href="#home">Announcements</a></li>
+			<li><a data-toggle="tab" id="log-tab" href="#logs">Active Logs</a></li>
+			<li><a data-toggle="tab" id="note-tab" href="#notifications">Notifications </a></li>
+			<li><a data-toggle="tab" id="trbshoot-tab" href="#trbshoot">Troubleshooting</a></li>
+			<li><a data-toggle="tab" id="genresp-tab" href="#genresp">Generic Responses</a></li>
+
+		  </ul>
+
+		  <div class="tab-content">
+			<div id="home" class="tab-pane fade in active">
+			  <iframe style="padding-top: 19px;" name="announcements" width="100%" height="690px" frameBorder="0" src="DemoAnnouncements.html"></iframe>
+			</div>
+			<div id="logs" class="tab-pane fade">
+			  <iframe id="logiFrame"  name="logiFrame" width="100%" height="690px" frameBorder="0" src="DemoLog.html"></iframe>
+			</div>
+			<div id="notifications" class="tab-pane fade">
+			  <iframe id="noteiFrame"  name="noteiFrame" width="100%" height="690px" frameBorder="0" src="DemoNotification.html"></iframe>
+			</div>
+			<div id="trbshoot" class="tab-pane fade">
+			  <iframe style="padding-top: 3px;" name="mindmapiFrame" width="100%" height="690px" frameBorder="0" src="DemoTroubleshooter.html"></iframe>
+			</div>
+			<div id="genresp" class="tab-pane fade">
+			  <iframe style="padding-top: 3px;" name="genrespiFrame" width="100%" height="690px" frameBorder="0" src="DemoGenResp.html"></iframe>
+			</div>
+
+
+		  </div>
+		</div>
+	</div>	<!-- End of div for columns 6-10 -->
+
+	<!--
+	---- Begin columns 11-12, which holds tabs for Service Status, Twitter Feed, and Contact Info
+	--->
+	<div class="col-md-3 text-left"><!-- 1 size taken from sidenav, which is commented out righ now-->
+		<div id="right_tabs">
+		  <ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#srvstatus">Services Status</a></li>
+			<li><a data-toggle="tab" href="#twitter">Twitter</a></li>
+			<li><a data-toggle="tab" href="#contact">Contact Info</a></li>
+		  </ul>
+
+		  <div class="tab-content">
+			<div id="srvstatus" class="tab-pane fade in active">
+			  <iframe style="padding-top: 3px;" name="srvstatusiFrame" width="100%" height="690px" frameBorder="0" src="DemoServices.html"></iframe>
+			</div>
+			<div id="twitter" class="tab-pane fade">
+			  <a class="twitter-timeline" data-height="600" href="https://twitter.com/itstechdesk">Tweets by ITSsrvcstatus</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+			</div>
+			<div id="contact" class="tab-pane fade">
+				<iframe style="padding-top: 3px;" name="contactiFrame" width="100%" height="690px" frameBorder="0" src="DemoTroubleshooter.html" marginwidth="0px"></iframe>
+			</div>
+		  </div>
+		</div>
+
+	</div> <!-- End div for columns 11-12 -->
+  </div> <!-- End div for Row Content -->
+</div><!--End div for Bootstrap container rules-->
+
+<!-- Creates the footer, see file for details and modification -->
+<footer class="container-fluid text-center">
+	<p>St.Thomas Tech Desk ~ 651-962-6230 ~ techdesk@stthomas.edu</p>
+</footer>  
+<script>
+	function myFunction() {
+		$( '.nav-tabs a[href="#logs"]' ).tab('show');
+	}
+	function generatePassword() {
+  var length = 8,
+  charset = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ012345678901234567890123456789",
+  retVal = 'Be sure to select one of the following that includes an uppercase, lower case, and a number.<br>Note: lowercase L and uppercase O have been removed, due to confusion with numbers 1 and 0.<br><br><span style="font-family: Times New Roman, Times, serif;">';
+  for(var j = 0, m = 3; j < m; ++j){
+    for (var i = 0, n = charset.length; i < length; ++i) {
+      retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    retVal += "<br>";
+  }
+  retVal = retVal + "</span>";
+  swal({
+    title: "Generated Passwords", 
+		text: retVal,
+		html: true
+	});
+}
+</script>
+</body>
+</html>
