@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="DemoStyle.css">
+<style>
+body {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+</style>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="col-md-12">
+<form id="totform" action="submitLog.php" method="post" target="iFrame1">
+<div class="form-group" style="margin-bottom: 3px;">
+	<label for="message">Editor:</label>
+	<textarea class="form-control" name="message" rows="7" selected>Username: 
+Location: ----
+Role: 
+Ticket Type: 
+Misc. Notes: 
+</textarea>
+</div>
+	<br>
+	<input form="totform" id="sendbutton" type="submit" class="btn btn-block btn-custom" value="Send Log" onclick="parent.myFunction();">
+
+	</div>
+</form>
+<iframe name="iFrame1" style="display: none;" width="100%" height="335px" frameBorder="0" marginwidth="0px"></iframe>
+
+
+</div>	
+</body>
+	<script>
+		parent.document.getElementById("logiFrame").contentWindow.location.reload(true);
+	</script>
+</html> 
